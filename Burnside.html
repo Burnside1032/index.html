@@ -1,23 +1,27 @@
-	<!doctype html>
+<!doctype html>
 <html>
 <head>
+  <meta charset="utf-8">
+  <title>Gym Notifications</title>
 
-<script src="https://toast-messages.anytimefitness.com/afwidget.js">
-</script>
-  
-<script>  
-var IS_PROD=true; //global variable  
-afWidget.displayWidgetForClub('NZ-1032','af-toast-iframe'); 
-</script>
-  
+  <script src="https://toast-messages.anytimefitness.com/afwidget.js"></script>
+
+  <script>
+    window.onload = function () {
+      // Ask for notifications
+      if ("Notification" in window && Notification.permission === "default") {
+        Notification.requestPermission();
+      }
+
+      // Load widget (ONLY this, no iframe)
+      afWidget.displayWidgetForClub('NZ-1032', 'af-toast-iframe');
+    };
+  </script>
 </head>
 
 <body>
+  <h2>Burnside Notifications</h2>
 
-<div id="af-toast-iframe">
-
-<iframe class="af-toast-iframe" src="https://toast-messages.anytimefitness.com/?afNumber=NZ-1032" style="width: 900px; height: 380px;"></iframe></div>
-
+  <div id="af-toast-iframe"></div>
 </body>
-
 </html>
